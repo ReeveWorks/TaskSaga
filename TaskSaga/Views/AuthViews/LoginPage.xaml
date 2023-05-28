@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TaskSaga.Views.AuthViews.LoginPage"
+             BackgroundColor="Black">
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <Label
+                    Text="TASK SAGA"
+                    FontSize="35"
+                    CharacterSpacing="3"
+                    FontAttributes="Bold"
+                    TextColor="#8c1515"
+                    HorizontalTextAlignment="Center">
+                </Label>
+                <Label
+                    Text="Unleash your potential, one task at a time!"
+                    TextTransform="Uppercase"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    Margin="0,0,0,10"
+                    HorizontalTextAlignment="Center">
+                </Label>
+
+                <StackLayout>
+                    <Frame
+                        CornerRadius="50"
+                        Padding="3"
+                        Margin="20,20,20,20"
+                        BackgroundColor="#8c1515">
+                        <Frame
+                            CornerRadius="50"
+                            Padding="3">
+                            <StackLayout
+                                Orientation="Horizontal"
+                                Margin="10,0,10,0">
+                                <Image Source="icon_email" HeightRequest="35"/>
+                                <Entry
+                                    x:Name="txtEmail"
+                                    Placeholder="Email"
+                                    Keyboard="Email"
+                                    TextColor="Black"
+                                    HorizontalOptions="FillAndExpand"
+                                    PlaceholderColor="DarkGray"/>
+                            </StackLayout>
+                        </Frame>
+                    </Frame>
+                    <Label
+                        x:Name="lblEmailNotice"
+                        IsVisible="false"
+                        TextColor="Red"
+                        Margin="0,-25,0,5"
+                        HorizontalTextAlignment="Center">
+                    </Label>
+                    
+                    <Frame
+                        CornerRadius="50"
+                        Padding="3"
+                        Margin="20,20,20,20"
+                        BackgroundColor="#8c1515">
+                        <Frame
+                            CornerRadius="50"
+                            Padding="3">
+                            <StackLayout
+                                Orientation="Horizontal"
+                                Margin="10,0,10,0">
+                                <Image Source="icon_password" HeightRequest="35"/>
+                                <Entry
+                                    x:Name="txtPassword"
+                                    Placeholder="Password"
+                                    Keyboard="Email"
+                                    TextColor="Black"
+                                    HorizontalOptions="FillAndExpand"
+                                    PlaceholderColor="DarkGray"/>
+                            </StackLayout>
+                        </Frame>
+                    </Frame>
+                    <Label
+                        x:Name="lblPasswordNotice"
+                        IsVisible="false"
+                        TextColor="Red"
+                        Margin="0,-25,0,5"
+                        HorizontalTextAlignment="Center">
+                    </Label>
+                </StackLayout>
+
+                <StackLayout
+                    Margin="0,15,0,0"
+                    HorizontalOptions="CenterAndExpand">
+                    <Button
+                        x:Name="btnLogin"
+                        Text="Login"
+                        FontSize="20"
+                        CornerRadius="5"
+                        CharacterSpacing="3"
+                        FontAttributes="Bold"
+                        BackgroundColor="#8c1515"
+                        Margin="20,0,20,0">
+                    </Button>
+
+                    <BoxView
+                        HeightRequest="1"
+                        WidthRequest="200"
+                        BackgroundColor="White"
+                        Margin="0,18,0,0">
+                    </BoxView>
+                    
+                    <Button
+                        x:Name="btnRegister"
+                        Text="Register"
+                        FontSize="20"
+                        CornerRadius="5"
+                        WidthRequest="150"
+                        CharacterSpacing="3"
+                        FontAttributes="Bold"
+                        BackgroundColor="Transparent"
+                        Margin="20,0,20,0"
+                        Clicked="btnRegister_Clicked">
+                    </Button>
+                </StackLayout>
+            </StackLayout>
+
+            <!--<BoxView Opacity="0.5"
+                     IsVisible="false"
+                     x:Name="loadingBlock"
+                     BackgroundColor="Black"
+                     VerticalOptions="FillAndExpand"
+                     HorizontalOptions="FillAndExpand"/>
+            <ActivityIndicator x:Name="loadingIndicator"
+                               IsRunning="True"
+                               IsVisible="False"
+                               Color="#8443a1"
+                               BackgroundColor="Transparent"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"/>-->
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
