@@ -18,22 +18,27 @@ namespace TaskSaga.Views.AuthViews
             InitializeComponent();
         }
 
+
         //Service
         RestrictionService Restriction = new RestrictionService();
         AuthenticationService Auth = new AuthenticationService();
+
 
         //Static Variables
         static int minPasswordCharacter = 6;
         static int minUserNameCharacter = 4;
 
+
+        //Buttons
         private void btnLogin_Clicked(object sender, EventArgs e)
         {
             OnBackButtonPressed();
         }
 
-        private void btnRegister_Clicked(object sender, EventArgs e)
+        private async void btnRegister_Clicked(object sender, EventArgs e)
         {
-            CheckEntry();
+            isLoading(true);
+            bool isAllGood = await CheckEntry();
 
             Label[] labels =
             {
@@ -45,22 +50,27 @@ namespace TaskSaga.Views.AuthViews
 
             bool EntryAllGood = Restriction.CheckLabelVisibility(labels);
 
-            if (!EntryAllGood)
+            if (!EntryAllGood && isAllGood)
             {
                 RegisterUser();
             }
+
+            isLoading(false);
         }
 
-        //Checking Entry for Restriction
-        private void CheckEntry()
+
+        //Restriction
+        private async Task<bool> CheckEntry()
         {
-            CheckEmail();
+            bool isCorrect = await CheckEmail();
             CheckUserName();
             CheckPassword();
             CheckConfirmPassword();
+
+            return isCorrect;
         }
 
-        private async void CheckEmail()
+        private async Task<bool> CheckEmail()
         {
             Restriction.CheckEmptyEntry(
                 txtEmail,
@@ -72,12 +82,14 @@ namespace TaskSaga.Views.AuthViews
                 if (!Regex.IsMatch(txtEmail.Text, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
                 {
                     Restriction.LabelVisibility(lblEmailNotice, true, "Enter a valid Email");
-                    return;
+                    return false;
                 }
 
                 bool isDuplicate = await Auth.CheckDuplicate(txtEmail.Text);
                 Restriction.LabelVisibility(lblEmailNotice, isDuplicate, "Email already exist");
             }
+
+            return true;
         }
 
         private void CheckUserName()
@@ -139,14 +151,6 @@ namespace TaskSaga.Views.AuthViews
             }
         }
 
-        //Emptying Entry
-        private void SetEntryEmpty()
-        {
-            txtEmail.Text = "";
-            txtUserName.Text = "";
-            txtPassword.Text = "";
-            txtConfirmPassword.Text = "";
-        }
 
         //Register
         private async void RegisterUser()
@@ -163,12 +167,38 @@ namespace TaskSaga.Views.AuthViews
 
                 await DisplayAlert("", $"Register Complete", "Ok");
 
-                SetEntryEmpty();
+                OnBackButtonPressed();
 
             }
             catch (Exception ex)
             {
                 await DisplayAlert("", $"Error: {ex.Message}", "Ok");
+
+                isLoading(false);
+            }
+        }
+
+
+        //Other Methods
+        private void SetEntryEmpty()
+        {
+            txtEmail.Text = null;
+            txtUserName.Text = null;
+            txtPassword.Text = null;
+            txtConfirmPassword.Text = null;
+        }
+
+        private void isLoading(bool setLoading)
+        {
+            if (!setLoading)
+            {
+                loadingBlock.IsVisible = false;
+                loadingIndicator.IsVisible = false;
+            }
+            else
+            {
+                loadingBlock.IsVisible = true;
+                loadingIndicator.IsVisible = true;
             }
         }
     }

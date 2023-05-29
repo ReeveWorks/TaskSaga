@@ -1344,3 +1344,6 @@ C:\Users\User\Documents\GitHub\TaskSaga\TaskSaga.Android\obj\Debug\120\stamp\_Co
 C:\Users\User\Documents\GitHub\TaskSaga\TaskSaga.Android\obj\Debug\120\stamp\_GenerateJavaStubs.stamp
 C:\Users\User\Documents\GitHub\TaskSaga\TaskSaga.Android\obj\Debug\120\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\User\Documents\GitHub\TaskSaga\TaskSaga.Android\obj\Debug\120\stamp\_ResolveLibraryProjectImports.stamp
+C:\Users\User\Documents\GitHub\TaskSaga\TaskSaga.Android\obj\Debug\120\res\drawable\icon_stats.png
+C:\Users\User\Documents\GitHub\TaskSaga\TaskSaga.Android\obj\Debug\120\res\drawable\icon_logout.png
+C:\Users\User\Documents\GitHub\TaskSaga\TaskSaga.Android\obj\Debug\120\res\drawable\icon_skill.png

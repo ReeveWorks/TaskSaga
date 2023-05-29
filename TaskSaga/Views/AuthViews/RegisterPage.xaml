@@ -63,7 +63,7 @@
                                 <Entry
                                     x:Name="txtUserName"
                                     Placeholder="Username"
-                                    MaxLength="25"
+                                    MaxLength="18"
                                     TextColor="Black"
                                     HorizontalOptions="FillAndExpand"
                                     PlaceholderColor="DarkGray"/>
@@ -176,7 +176,7 @@
                 </StackLayout>
             </StackLayout>
 
-            <!--<BoxView Opacity="0.5"
+            <BoxView Opacity="0.5"
                      IsVisible="false"
                      x:Name="loadingBlock"
                      BackgroundColor="Black"
@@ -188,7 +188,7 @@
                                Color="#8443a1"
                                BackgroundColor="Transparent"
                                VerticalOptions="Center"
-                               HorizontalOptions="Center"/>-->
+                               HorizontalOptions="Center"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

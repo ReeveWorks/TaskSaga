@@ -12,10 +12,12 @@ namespace TaskSaga.Services
         {
         }
 
-        public void CheckEmptyEntry(Entry entry, Label noticeLabel, string noticeText)
+        public bool CheckEmptyEntry(Entry entry, Label noticeLabel, string noticeText)
         {
             bool isEmpty = string.IsNullOrWhiteSpace(entry.Text);
             LabelVisibility(noticeLabel, isEmpty, noticeText);
+
+            return isEmpty;
         }
 
         public void CheckEntryLength(Entry entry, Label noticeLabel, string noticeText, int minLength)

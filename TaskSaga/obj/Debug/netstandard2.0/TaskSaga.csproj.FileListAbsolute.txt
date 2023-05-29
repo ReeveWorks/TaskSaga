@@ -34,3 +34,4 @@ C:\Users\User\Documents\GitHub\TaskSaga\TaskSaga\obj\Debug\netstandard2.0\TaskSa
 C:\Users\User\Documents\GitHub\TaskSaga\TaskSaga\obj\Debug\netstandard2.0\refint\TaskSaga.dll
 C:\Users\User\Documents\GitHub\TaskSaga\TaskSaga\obj\Debug\netstandard2.0\TaskSaga.pdb
 C:\Users\User\Documents\GitHub\TaskSaga\TaskSaga\obj\Debug\netstandard2.0\ref\TaskSaga.dll
+C:\Users\User\Documents\GitHub\TaskSaga\TaskSaga\obj\Debug\netstandard2.0\Views\TabViews\TaskPage.xaml.g.cs

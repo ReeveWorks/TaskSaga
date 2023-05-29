@@ -24,7 +24,26 @@ namespace TaskSaga.Services
         {
             firebaseClient = new FirebaseClient("https://tasksaga-10f15-default-rtdb.asia-southeast1.firebasedatabase.app/");
         }
-        //Saving
+
+
+        //Authentication
+        public async Task<Models.User> Login(string email, string password)
+        {
+            var token = await authProvider.SignInWithEmailAndPasswordAsync(email, password);
+            var auth = await authProvider.GetUserAsync(token);
+            var id = auth.LocalId;
+            return (await firebaseClient.Child("Users")
+                .OnceAsync<Models.User>())
+                .Where(value => value.Key.Contains(id))
+                .Select(item => new Models.User
+                {
+                    Email = item.Object.Email,
+                    UserName = item.Object.UserName,
+
+                    ID = item.Key
+                }).ToList().FirstOrDefault();
+        }
+
         public async Task<bool> Register(Models.User users)
         {
             try
@@ -85,6 +104,19 @@ namespace TaskSaga.Services
             {
                 return false;
             }
+        }
+
+
+        //Other Methods
+        public async Task<bool> SetInfo(Models.User user, string password)
+        {
+            Preferences.Set("Email", user.Email);
+            Preferences.Set("UserName", user.UserName);
+            Preferences.Set("Password", password);
+
+            Preferences.Set("ID", user.ID);
+
+            return await Task.FromResult(true);
         }
     }
 }

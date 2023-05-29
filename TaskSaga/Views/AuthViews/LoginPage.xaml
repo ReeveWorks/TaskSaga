@@ -49,7 +49,7 @@
                     <Label
                         x:Name="lblEmailNotice"
                         IsVisible="false"
-                        TextColor="Red"
+                        TextColor="White"
                         Margin="0,-25,0,5"
                         HorizontalTextAlignment="Center">
                     </Label>
@@ -69,7 +69,7 @@
                                 <Entry
                                     x:Name="txtPassword"
                                     Placeholder="Password"
-                                    Keyboard="Email"
+                                    IsPassword="True"
                                     TextColor="Black"
                                     HorizontalOptions="FillAndExpand"
                                     PlaceholderColor="DarkGray"/>
@@ -79,7 +79,7 @@
                     <Label
                         x:Name="lblPasswordNotice"
                         IsVisible="false"
-                        TextColor="Red"
+                        TextColor="White"
                         Margin="0,-25,0,5"
                         HorizontalTextAlignment="Center">
                     </Label>
@@ -96,7 +96,8 @@
                         CharacterSpacing="3"
                         FontAttributes="Bold"
                         BackgroundColor="#8c1515"
-                        Margin="20,0,20,0">
+                        Margin="20,0,20,0"
+                        Clicked="btnLogin_Clicked">
                     </Button>
 
                     <BoxView

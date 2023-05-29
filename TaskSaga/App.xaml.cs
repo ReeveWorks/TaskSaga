@@ -1,6 +1,7 @@
 ﻿using System;
 using TaskSaga.Views;
 using TaskSaga.Views.AuthViews;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,7 +14,9 @@ namespace TaskSaga
         {
             InitializeComponent();
 
-            MainPage = new LoginPage();
+            var user = Preferences.Get("ID", "");
+            if (user != "") MainPage = new AppShell();
+            else MainPage = new LoginPage();
         }
 
         protected override void OnStart()
