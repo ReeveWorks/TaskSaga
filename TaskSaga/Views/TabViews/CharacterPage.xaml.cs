@@ -33,6 +33,7 @@ namespace TaskSaga.Views.TabViews
             Preferences.Set("Email", "");
             Preferences.Set("Password", "");
             Preferences.Set("UserName", "");
+            Preferences.Set("ID", "");
 
             (Application.Current).MainPage = new LoginPage();
         }
@@ -90,17 +91,15 @@ namespace TaskSaga.Views.TabViews
                 string skillName = await DisplayPromptAsync("", "Skill Name:", "OK", "Cancel", null, maxLength: 25, keyboard: Keyboard.Default, "");
                 if (string.IsNullOrEmpty(skillName) || skillName == "Cancel") return;
 
+                //bool isDuplicate = await stats.CheckDuplicate(skillName);
+                //if (isDuplicate)
+                //{
+                //    await DisplayAlert("", $"You already have the Skill {skillName}.", "OK");
+                //    return;
+                //}
 
-                string skillDescription = await DisplayPromptAsync("", "Skill Description:", "OK", "Cancel", null, maxLength: 100, keyboard: Keyboard.Default, "");
+                string skillDescription = await DisplayPromptAsync("", "Skill Description:", "OK", "Cancel", null, maxLength: 150, keyboard: Keyboard.Default, "");
                 if (string.IsNullOrEmpty(skillDescription) || skillDescription == "Cancel") return;
-
-
-                bool isDuplicate = await stats.CheckDuplicate(skillName);
-                if (isDuplicate)
-                {
-                    await DisplayAlert("", $"You already have the Skill {skillName}.", "OK");
-                    return;
-                }
 
                 bool isSuccess = await stats.NewSkill(skillName, skillDescription);
                 if (isSuccess)
@@ -111,10 +110,12 @@ namespace TaskSaga.Views.TabViews
                 {
                     await DisplayAlert("", $"Failed to acquire the skill {skillName}.", "OK");
                 }
+
+                OnAppearing();
             }
             catch (Exception ex)
             {
-                await DisplayAlert("", ex.Message, "OK");
+                await DisplayAlert("", ex.ToString(), "OK");
             }
         }
 
