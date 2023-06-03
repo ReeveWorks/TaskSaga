@@ -34,6 +34,7 @@ namespace TaskSaga.Views.AuthViews
         {
             try
             {
+                isLoading();
 
                 bool isALlGood = CheckEntry();
 
@@ -68,6 +69,8 @@ namespace TaskSaga.Views.AuthViews
                     lblPasswordNotice.Text = "Password is incorrect";
                     await DisplayAlert("", x.Message, "Okay");
                 }
+
+                isLoading();
             }
         }
 
@@ -105,6 +108,20 @@ namespace TaskSaga.Views.AuthViews
                 txtPassword,
                 lblPasswordNotice,
                 "Please enter a password");
+        }
+
+        private void isLoading()
+        {
+            if (loadingIndicator.IsVisible)
+            {
+                loadingBlock.IsVisible = false;
+                loadingIndicator.IsVisible = false;
+            }
+            else
+            {
+                loadingBlock.IsVisible = true;
+                loadingIndicator.IsVisible = true;
+            }
         }
     }
 }

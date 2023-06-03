@@ -185,7 +185,7 @@
             <ActivityIndicator x:Name="loadingIndicator"
                                IsRunning="True"
                                IsVisible="False"
-                               Color="#8443a1"
+                               Color="{StaticResource ClassB}"
                                BackgroundColor="Transparent"
                                VerticalOptions="Center"
                                HorizontalOptions="Center"/>

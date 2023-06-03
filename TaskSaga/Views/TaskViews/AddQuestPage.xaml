@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" 
+             x:Class="TaskSaga.Views.TaskViews.AddQuestPage"
+             Title="Add New Task"
+             BackgroundColor="Black">
+    <ContentPage.Content>
+        <Grid>
+            <ScrollView>
+                <StackLayout VerticalOptions="CenterAndExpand">
+                    <StackLayout Margin="20,0,20,0">
+                        <pancake:PancakeView CornerRadius="10,10,0,0" Padding="1" BackgroundColor="White">
+                            <pancake:PancakeView CornerRadius="9,9,0,0" Padding="10" BackgroundColor="{StaticResource Background}">
+                                <StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Title:" FontSize="20" VerticalOptions="CenterAndExpand"/>
+                                        <Entry x:Name="txtTitle" TextColor="White" MaxLength="25" HorizontalOptions="FillAndExpand"/>
+                                    </StackLayout>
+
+                                    <BoxView HeightRequest="1" Color="White" Margin="0,3,0,3"/>
+
+                                    <StackLayout>
+                                        <Label Text="Description:" FontSize="20" VerticalOptions="CenterAndExpand"/>
+                                        <Editor x:Name="txtDescription" TextColor="White" AutoSize="TextChanges" MaxLength="150" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                                    </StackLayout>
+
+                                    <BoxView HeightRequest="1" Color="White" Margin="0,3,0,3"/>
+                                    <StackLayout Orientation="Horizontal">
+                                        <ImageButton Source="icon_addbox" Clicked="ImageButton_Clicked" Scale="0.8"/>
+                                        <Label Text="Rewards:" FontSize="20" VerticalOptions="CenterAndExpand"/>
+                                    </StackLayout>
+                                    <Label x:Name="lblrewardItems" FontSize="15"/>
+                                </StackLayout>
+                            </pancake:PancakeView>
+                        </pancake:PancakeView>
+
+
+                        <pancake:PancakeView CornerRadius="0,0,10,10" Margin="0,5,0,5" Padding="1" BackgroundColor="White">
+                            <pancake:PancakeView CornerRadius="0,0,9,9" BackgroundColor="{StaticResource Background}">
+                                <Button x:Name="btnAdd" Text="Add Task" FontSize="18" Clicked="btnAdd_Clicked"/>
+                            </pancake:PancakeView>
+                        </pancake:PancakeView>
+                    </StackLayout>
+
+                    <StackLayout Margin="30,10,30,0">
+                        <pancake:PancakeView CornerRadius="0,10,0,0" Padding="1" BackgroundColor="White">
+                            <pancake:PancakeView CornerRadius="0,9,0,0" BackgroundColor="{StaticResource Background}">
+                                <StackLayout Padding="10">
+                                    <Grid>
+                                        <Label Grid.Column="0" Text="CLASS" FontSize="15" HorizontalOptions="Center"/>
+                                        <Label Grid.Column="1" Text="LEVEL" FontSize="15" HorizontalOptions="Center"/>
+                                        <Label Grid.Column="2" Text="MAX EXP" FontSize="15" HorizontalOptions="Center"/>
+                                    </Grid>
+                                    
+                                    <Grid>
+                                        <Label Grid.Column="0" Text="E" FontSize="15" HorizontalOptions="Center" TextColor="{StaticResource ClassE}"/>
+                                        <Label Grid.Column="1" Text="0" FontSize="15" HorizontalOptions="Center" TextColor="{StaticResource ClassE}"/>
+                                        <Label Grid.Column="2" Text="50" FontSize="15" HorizontalOptions="Center" TextColor="{StaticResource ClassE}"/>
+                                    </Grid>
+                                    
+                                    <Grid>
+                                        <Label Grid.Column="0" Text="D" FontSize="15" HorizontalOptions="Center" TextColor="{StaticResource ClassD}"/>
+                                        <Label Grid.Column="1" Text="5" FontSize="15" HorizontalOptions="Center" TextColor="{StaticResource ClassD}"/>
+                                        <Label Grid.Column="2" Text="150" FontSize="15" HorizontalOptions="Center" TextColor="{StaticResource ClassD}"/>
+                                    </Grid>
+
+                                    <Grid>
+                                        <Label Grid.Column="0" Text="C" FontSize="15" HorizontalOptions="Center" TextColor="{StaticResource ClassC}"/>
+                                        <Label Grid.Column="1" Text="20" FontSize="15" HorizontalOptions="Center" TextColor="{StaticResource ClassC}"/>
+                                        <Label Grid.Column="2" Text="400" FontSize="15" HorizontalOptions="Center" TextColor="{StaticResource ClassC}"/>
+                                    </Grid>
+
+                                    <Grid>
+                                        <Label Grid.Column="0" Text="B" FontSize="15" HorizontalOptions="Center" TextColor="{StaticResource ClassB}"/>
+                                        <Label Grid.Column="1" Text="35" FontSize="15" HorizontalOptions="Center" TextColor="{StaticResource ClassB}"/>
+                                        <Label Grid.Column="2" Text="1000" FontSize="15" HorizontalOptions="Center" TextColor="{StaticResource ClassB}"/>
+                                    </Grid>
+
+                                    <Grid>
+                                        <Label Grid.Column="0" Text="A" FontSize="15" HorizontalOptions="Center" TextColor="{StaticResource ClassA}"/>
+                                        <Label Grid.Column="1" Text="50" FontSize="15" HorizontalOptions="Center" TextColor="{StaticResource ClassA}"/>
+                                        <Label Grid.Column="2" Text="2000" FontSize="15" HorizontalOptions="Center" TextColor="{StaticResource ClassA}"/>
+                                    </Grid>
+                                </StackLayout>
+                            </pancake:PancakeView>
+                        </pancake:PancakeView>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+
+            <BoxView Opacity="0.5"
+                     IsVisible="false"
+                     x:Name="loadingBlock"
+                     BackgroundColor="Black"
+                     VerticalOptions="FillAndExpand"
+                     HorizontalOptions="FillAndExpand"/>
+            <ActivityIndicator x:Name="loadingIndicator"
+                               IsRunning="True"
+                               IsVisible="False"
+                               Color="{StaticResource ClassB}"
+                               BackgroundColor="Transparent"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

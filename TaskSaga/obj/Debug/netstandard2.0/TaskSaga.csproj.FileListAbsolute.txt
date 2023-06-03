@@ -35,3 +35,5 @@ C:\Users\User\Documents\GitHub\TaskSaga\TaskSaga\obj\Debug\netstandard2.0\refint
 C:\Users\User\Documents\GitHub\TaskSaga\TaskSaga\obj\Debug\netstandard2.0\TaskSaga.pdb
 C:\Users\User\Documents\GitHub\TaskSaga\TaskSaga\obj\Debug\netstandard2.0\ref\TaskSaga.dll
 C:\Users\User\Documents\GitHub\TaskSaga\TaskSaga\obj\Debug\netstandard2.0\Views\TabViews\TaskPage.xaml.g.cs
+C:\Users\User\Documents\GitHub\TaskSaga\TaskSaga\obj\Debug\netstandard2.0\Views\TaskViews\QuestPage.xaml.g.cs
+C:\Users\User\Documents\GitHub\TaskSaga\TaskSaga\obj\Debug\netstandard2.0\Views\TaskViews\AddQuestPage.xaml.g.cs

@@ -20,6 +20,8 @@ namespace TaskSaga.Services
         static string webAPIKey = "AIzaSyAI4KhYPYIoREKHgrtVEipkAGOHGcBRSmM";
         FirebaseAuthProvider authProvider = new FirebaseAuthProvider(new FirebaseConfig(webAPIKey));
 
+        StatsService stats = new StatsService();
+
         public AuthenticationService()
         {
             firebaseClient = new FirebaseClient("https://tasksaga-10f15-default-rtdb.asia-southeast1.firebasedatabase.app/");
@@ -32,6 +34,7 @@ namespace TaskSaga.Services
             var token = await authProvider.SignInWithEmailAndPasswordAsync(email, password);
             var auth = await authProvider.GetUserAsync(token);
             var id = auth.LocalId;
+
             return (await firebaseClient.Child("Users")
                 .OnceAsync<Models.User>())
                 .Where(value => value.Key.Contains(id))

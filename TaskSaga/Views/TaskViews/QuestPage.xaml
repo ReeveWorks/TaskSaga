@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" 
+             x:Class="TaskSaga.Views.TaskViews.QuestPage"
+             BackgroundColor="Black">
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout VerticalOptions="CenterAndExpand" Margin="20,0,20,0">
+                <pancake:PancakeView CornerRadius="10,10,0,0" Padding="1" BackgroundColor="White">
+                    <pancake:PancakeView CornerRadius="9,9,0,0" Padding="10" BackgroundColor="{StaticResource Background}">
+                        <StackLayout>
+                            <Label x:Name="lblTitle" FontSize="20"/>
+                            <BoxView HeightRequest="1" Color="White" Margin="0,3,0,3"/>
+                            <Label x:Name="lblDescription" FontSize="15"/>
+                            <BoxView HeightRequest="1" Color="White" Margin="0,3,0,3"/>
+
+                            <Label x:Name="lblRewards" FontSize="15"/>
+                        </StackLayout>
+                    </pancake:PancakeView>
+                </pancake:PancakeView>
+
+                <pancake:PancakeView CornerRadius="0,0,0,0" Margin="0,5,0,0" Padding="1" BackgroundColor="White">
+                    <pancake:PancakeView CornerRadius="0,0,9,9" BackgroundColor="{StaticResource Background}">
+                        <Button x:Name="btnDelete" Text="Abandon Task" FontSize="18" Clicked="btnDelete_Clicked"/>
+                    </pancake:PancakeView>
+                </pancake:PancakeView>
+
+                <pancake:PancakeView CornerRadius="0,0,10,10" Margin="0,5,0,5" Padding="1" BackgroundColor="White">
+                    <pancake:PancakeView CornerRadius="0,0,9,9" BackgroundColor="{StaticResource Background}">
+                        <Button x:Name="btnComplete" Text="Complete" FontSize="18" Clicked="btnComplete_Clicked"/>
+                    </pancake:PancakeView>
+                </pancake:PancakeView>
+            </StackLayout>
+
+            <BoxView Opacity="0.5"
+                     IsVisible="false"
+                     x:Name="loadingBlock"
+                     BackgroundColor="Black"
+                     VerticalOptions="FillAndExpand"
+                     HorizontalOptions="FillAndExpand"/>
+            <ActivityIndicator x:Name="loadingIndicator"
+                               IsRunning="True"
+                               IsVisible="False"
+                               Color="{StaticResource ClassB}"
+                               BackgroundColor="Transparent"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

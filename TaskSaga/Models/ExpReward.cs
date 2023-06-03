@@ -7,6 +7,6 @@ namespace TaskSaga.Models
     internal class ExpReward
     {
         public string Name { get; set; }
-        public int Exp { get; set; }
+        public double Exp { get; set; }
     }
 }

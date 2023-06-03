@@ -122,7 +122,7 @@
                 </StackLayout>
             </StackLayout>
 
-            <!--<BoxView Opacity="0.5"
+            <BoxView Opacity="0.5"
                      IsVisible="false"
                      x:Name="loadingBlock"
                      BackgroundColor="Black"
@@ -131,10 +131,10 @@
             <ActivityIndicator x:Name="loadingIndicator"
                                IsRunning="True"
                                IsVisible="False"
-                               Color="#8443a1"
+                               Color="{StaticResource ClassB}"
                                BackgroundColor="Transparent"
                                VerticalOptions="Center"
-                               HorizontalOptions="Center"/>-->
+                               HorizontalOptions="Center"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

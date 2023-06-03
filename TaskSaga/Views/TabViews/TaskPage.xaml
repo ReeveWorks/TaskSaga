@@ -1,13 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" 
              x:Class="TaskSaga.Views.TabViews.TaskPage"
-             BackgroundColor="Black">
+             BackgroundColor="Black"
+             Title="Quest">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="btnAdd" IconImageSource="drawable/icon_addbox" Clicked="btnAdd_Clicked"/>
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ListView
+            Grid.Row="1"
+            x:Name ="TaskListView"
+            HasUnevenRows="True"
+            Margin="10,10,10,10"
+            SeparatorColor="{StaticResource Background}"
+            ItemSelected="TaskListView_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <pancake:PancakeView CornerRadius="10,10,10,10" Padding="1" BackgroundColor="White">
+                            <pancake:PancakeView CornerRadius="9,9,9,9" Padding="10" BackgroundColor="{StaticResource Background}">
+                                <StackLayout>
+                                    <Label Text="{Binding Title}" FontSize="Title"/>
+                                    <Label Text="{Binding Description}" FontSize="Medium"/>
+                                </StackLayout>
+                            </pancake:PancakeView>
+                        </pancake:PancakeView>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </ContentPage.Content>
 </ContentPage>

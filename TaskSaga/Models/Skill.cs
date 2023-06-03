@@ -8,8 +8,10 @@ namespace TaskSaga.Models
         public string Description { get; set; }
 
         public int Level { get; set; }
-        public int Exp { get; set; }
+        public double Exp { get; set; }
         public int ExpCap { get; set; }
+
+        public double Progress { get; set; }
 
     }
 }

@@ -1347,3 +1347,4 @@ C:\Users\User\Documents\GitHub\TaskSaga\TaskSaga.Android\obj\Debug\120\stamp\_Re
 C:\Users\User\Documents\GitHub\TaskSaga\TaskSaga.Android\obj\Debug\120\res\drawable\icon_stats.png
 C:\Users\User\Documents\GitHub\TaskSaga\TaskSaga.Android\obj\Debug\120\res\drawable\icon_logout.png
 C:\Users\User\Documents\GitHub\TaskSaga\TaskSaga.Android\obj\Debug\120\res\drawable\icon_skill.png
+C:\Users\User\Documents\GitHub\TaskSaga\TaskSaga.Android\obj\Debug\120\res\drawable\icon_addbox.png
